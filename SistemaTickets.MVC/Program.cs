@@ -2,6 +2,7 @@ using SistemaTickets.Consumer;
 using SistemaTickets.Modelos;
 using SistemaTickets.MVC.Controllers;
 
+
 namespace SistemaTickets.MVC
 {
     public class Program
@@ -10,17 +11,28 @@ namespace SistemaTickets.MVC
         {
             var builder = WebApplication.CreateBuilder(args);
 
+            // Configuración de los endpoints para los controladores CRUD
             Crud<Reservation>.EndPoint = "https://localhost:7087/api/Reservations";
             Crud<Ticket>.EndPoint = "https://localhost:7087/api/Tickets";
             Crud<Client>.EndPoint = "https://localhost:7087/api/Clients";
             Crud<Admin>.EndPoint = "https://localhost:7087/api/Admins";
             Crud<TravelRout>.EndPoint = "https://localhost:7087/api/TravelRoutes";
+
             // Registrar HttpClient para la inyección de dependencias
-            builder.Services.AddHttpClient();
+            builder.Services.AddHttpClient();  // Usa esta línea una sola vez
 
             // Agregar servicios al contenedor
-            builder.Services.AddControllersWithViews();
-            builder.Services.AddHttpClient<ReservationController>();
+            
+
+
+            // Configuración de almacenamiento en memoria para las sesiones
+            builder.Services.AddDistributedMemoryCache();
+
+            // Configuración de sesión (Tiempo de expiración, 10 minutos)
+            builder.Services.AddSession(options =>
+            {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);  // Personaliza el tiempo de expiración
+            });
 
             var app = builder.Build();
 
@@ -34,33 +46,32 @@ namespace SistemaTickets.MVC
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            app.UseRouting();
+          
 
-            app.UseAuthorization();
-
+            // Rutas para los controladores
             app.MapControllerRoute(
                 name: "default",
-                pattern: "{controller=Home}/{action=Index}/{id?}");
+                pattern: "{controller=Start}/{action=Index}/{id?}");  // Modificar para que la página predeterminada sea la que desees
 
-            // Ruta para ver rutas en ClientsController
+            // Rutas específicas para ClientsController
             app.MapControllerRoute(
                 name: "routes",
                 pattern: "Client/{action=ViewRoutes}/{id?}",
                 defaults: new { controller = "Clients", action = "ViewRoutes" });
 
-            // Ruta para ver asientos en ClientsController
             app.MapControllerRoute(
                 name: "seats",
                 pattern: "Client/{action=ViewSeats}/{id?}",
                 defaults: new { controller = "Clients", action = "ViewSeats" });
+            app.MapControllerRoute(
+                name: "login-client",
+                pattern: "Client/Login", // URL personalizada
+                defaults: new { controller = "Clients", action = "Login" });
 
-
-            // Ruta para ReservationsController
-            //app.MapControllerRoute(
-            //    name: "reservations",
-            //    pattern: "Reservations/{action=Create}/{id?}",
-            //    defaults: new { controller = "Reservations" });
-
+            app.MapControllerRoute(
+    name: "register-client",
+    pattern: "Clients/RegisterClient",  // URL personalizada
+    defaults: new { controller = "Clients", action = "RegisterClient" });
             app.Run();
         }
     }

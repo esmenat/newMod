@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = "Client Registration";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form method="post" asp-action="Register" id="registerForm">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" required />
+        @if (ViewData.ModelState["Name"]?.Errors.Any() == true)
+        {
+            <span class="text-danger">@ViewData.ModelState["Name"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email</label>
+        <input type="email" class="form-control" id="Email" name="Email" required />
+        @if (ViewData.ModelState["Email"]?.Errors.Any() == true)
+        {
+            <span class="text-danger">@ViewData.ModelState["Email"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="Password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="Password" name="Password" required />
+        @if (ViewData.ModelState["Password"]?.Errors.Any() == true)
+        {
+            <span class="text-danger">@ViewData.ModelState["Password"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+
+    <div class="mb-3">
+        <label for="ConfirmPassword" class="form-label">Confirm Password</label>
+        <input type="password" class="form-control" id="ConfirmPassword" name="ConfirmPassword" required />
+        @if (ViewData.ModelState["ConfirmPassword"]?.Errors.Any() == true)
+        {
+            <span class="text-danger">@ViewData.ModelState["ConfirmPassword"].Errors[0].ErrorMessage</span>
+        }
+    </div>
+
+    <button type="submit" class="btn register-btn">Register</button>
+</form>
+
+<!-- Mostrar los errores globales si hay alguno -->
+@if (ViewData.ModelState.ErrorCount > 0)
+{
+    <div class="alert alert-danger mt-2">
+        <strong>@ViewData.ModelState[""].Errors[0].ErrorMessage</strong>
+    </div>
+}
+
+<!-- Mostrar el mensaje de éxito -->
+<div id="successMessage" class="alert alert-success" style="display: none;"></div>
+
+@section Scripts {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#registerForm').submit(function (event) {
+                // Prevenir el envío por defecto
+                event.preventDefault();
+
+                // Validación de contraseñas
+                if ($('#Password').val() !== $('#ConfirmPassword').val()) {
+                    alert("Las contraseñas no coinciden.");
+                    return;  // Detener el envío del formulario
+                }
+
+                // Recoger los datos del formulario
+                var formData = $(this).serialize();
+
+                // Realizar el envío con Ajax
+                $.ajax({
+                    type: 'POST',
+                    url: '/Clients/Register',
+                    data: formData,
+                    success: function (data) {
+                        // Limpiar el formulario y mostrar el mensaje de éxito
+                        $('#registerForm')[0].reset();
+                        $('#successMessage').text('¡Registro exitoso! Redirigiendo...').show();
+                        setTimeout(function () {
+                            window.location.href = '/Clients/LoginClient'; // Redirigir a la página de Login
+                        }, 2000);  // Espera 2 segundos antes de redirigir
+                    },
+                    error: function (xhr, status, error) {
+                        // Mostrar el mensaje de error si hay un fallo
+                        alert('Error: ' + xhr.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+}

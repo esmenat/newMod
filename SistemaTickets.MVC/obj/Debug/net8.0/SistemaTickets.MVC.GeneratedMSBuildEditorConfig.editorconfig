@@ -40,6 +40,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xMb2dpbkNsaWVudC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[C:/Users/Junior Tamayo/Desktop/herramientas_tarea2bimestre/SistemaDeVentasDeTicketsDeTrenIbarra/SistemaTickets.MVC/Views/Clients/RegisterClient.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xSZWdpc3RlckNsaWVudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [C:/Users/Junior Tamayo/Desktop/herramientas_tarea2bimestre/SistemaDeVentasDeTicketsDeTrenIbarra/SistemaTickets.MVC/Views/Clients/ViewRoutes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2xpZW50c1xWaWV3Um91dGVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -82,6 +86,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [C:/Users/Junior Tamayo/Desktop/herramientas_tarea2bimestre/SistemaDeVentasDeTicketsDeTrenIbarra/SistemaTickets.MVC/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/Junior Tamayo/Desktop/herramientas_tarea2bimestre/SistemaDeVentasDeTicketsDeTrenIbarra/SistemaTickets.MVC/Views/Start/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU3RhcnRcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/Junior Tamayo/Desktop/herramientas_tarea2bimestre/SistemaDeVentasDeTicketsDeTrenIbarra/SistemaTickets.MVC/Views/TravelRoutes/Edit.cshtml]

@@ -16,6 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaDeVentasDeTicketsDeTrenIbarra.csproj" />
     <ProjectReference Include="..\SistemaTickets.Consumer\SistemaTickets.Consumer.csproj" />
     <ProjectReference Include="..\SistemaTickets.Modelos\SistemaTickets.Modelos.csproj" />
   </ItemGroup>

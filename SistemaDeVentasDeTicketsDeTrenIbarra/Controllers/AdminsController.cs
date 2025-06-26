@@ -103,5 +103,21 @@ namespace SistemaDeVentasDeTicketsDeTrenIbarra.Controllers
         {
             return _context.Admin.Any(e => e.Codigo == id);
         }
+
+        //Method login
+        [HttpPost("authenticate")]
+        public async Task<ActionResult<Admin>> AuthenticateAdmin([FromBody] LoginRequest loginRequest)
+        {
+            // Buscar el administrador por email
+            var admin = await _context.Admin
+                .FirstOrDefaultAsync(a => a.Email == loginRequest.Email && a.Password == loginRequest.Password);
+
+            if (admin == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(admin);
+        }
     }
 }

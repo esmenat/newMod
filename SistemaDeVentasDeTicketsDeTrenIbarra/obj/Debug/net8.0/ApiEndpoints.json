@@ -109,6 +109,32 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "SistemaDeVentasDeTicketsDeTrenIbarra.Controllers.AdminsController",
+    "Method": "AuthenticateAdmin",
+    "RelativePath": "api/Admins/authenticate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "SistemaTickets.Modelos.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SistemaTickets.Modelos.Admin",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
     "ContainingType": "SistemaDeVentasDeTicketsDeTrenIbarra.Controllers.ClientsController",
     "Method": "GetClient",
     "RelativePath": "api/Clients",
@@ -216,6 +242,58 @@
       }
     ],
     "ReturnTypes": []
+  },
+  {
+    "ContainingType": "SistemaDeVentasDeTicketsDeTrenIbarra.Controllers.ClientsController",
+    "Method": "AuthenticateClient",
+    "RelativePath": "api/Clients/authenticate",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "loginRequest",
+        "Type": "SistemaTickets.Modelos.LoginRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SistemaTickets.Modelos.Client",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "SistemaDeVentasDeTicketsDeTrenIbarra.Controllers.ClientsController",
+    "Method": "RegisterClient",
+    "RelativePath": "api/Clients/register",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "registerRequest",
+        "Type": "SistemaTickets.Modelos.RegisterRequest",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "SistemaTickets.Modelos.Client",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
   },
   {
     "ContainingType": "SistemaDeVentasDeTicketsDeTrenIbarra.Controllers.PricesController",

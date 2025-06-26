@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using System.Net.Http;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.VisualStudio.Web.CodeGenerators.Mvc.Templates.General;
 using Newtonsoft.Json;
 using SistemaTickets.Consumer;
 using SistemaTickets.Modelos;
@@ -10,6 +14,7 @@ namespace SistemaTickets.MVC.Controllers
 {
     public class ReservationController : Controller
     {
+      
         // GET:
         private readonly HttpClient _httpClient;
         private readonly string _apiUrl = "https://localhost:7087/api/prices/calculate-price"; // URL de la API para calcular el precio.
@@ -17,35 +22,31 @@ namespace SistemaTickets.MVC.Controllers
         // Inyección de HttpClient
         public ReservationController(HttpClient httpClient)
         {
+          
             _httpClient = httpClient;
         }
 
-       public async Task<ActionResult> Index()
-{
-            var clientCodigo = 1; // Aquí deberías obtener el código del cliente logueado, por ejemplo, desde la sesión o el token de autenticación.
-                                  // Construye la URL con el clienteCodigo al final
-            var url = $"https://localhost:7087/api/Reservations/Client/{clientCodigo}";
+        public async Task<ActionResult> Index()
+        {
+            var clienteCodigo = User.FindFirstValue(ClaimTypes.NameIdentifier); // Obtener el ID del cliente desde el token
 
-    // Realiza la solicitud HTTP GET
-    var response = await _httpClient.GetAsync(url);
+            // Asegúrate de que clienteCodigo no sea nulo o vacío
+            if (string.IsNullOrEmpty(clienteCodigo))
+            {
+                return Unauthorized(); // O alguna respuesta que maneje el caso en que no esté logueado
+            }
 
-            // Verifica si la respuesta fue exitosa
+            var url = $"https://localhost:7087/api/Reservations/Client/{clienteCodigo}";
+            var response = await _httpClient.GetAsync(url);
+
             if (response.IsSuccessStatusCode)
             {
-                // Mapea la respuesta a una lista de reservaciones
-                var data = JsonConvert.DeserializeObject<List<Reservation>>(await response.Content.ReadAsStringAsync());
+                // Procesar la respuesta aquí
+            }
 
+            return View();
+        }
 
-                // Devuelve la vista con los datos
-                return View(data);
-    }
-    else
-    {
-        // Si no se obtuvo una respuesta exitosa, maneja el error (por ejemplo, 404 o 500)
-        // Puedes redirigir a una página de error o devolver un mensaje adecuado
-        return View("Error");
-    }
-}
 
 
         // GET: ReservationController/Details/5

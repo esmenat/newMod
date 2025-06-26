@@ -103,5 +103,47 @@ namespace SistemaDeVentasDeTicketsDeTrenIbarra.Controllers
         {
             return _context.Client.Any(e => e.Codigo == id);
         }
+
+        [HttpPost("authenticate")]
+        public async Task<ActionResult<Client>> AuthenticateClient([FromBody] LoginRequest loginRequest)
+        {
+            // Buscar el cliente por email y contraseña
+            var client = await _context.Client
+                .FirstOrDefaultAsync(c => c.Email == loginRequest.Email && c.Password == loginRequest.Password);
+
+            if (client == null)
+            {
+                return Unauthorized();
+            }
+
+            return Ok(client);
+        }
+
+        [HttpPost("register")]
+        public async Task<ActionResult<Client>> RegisterClient([FromBody] RegisterRequest registerRequest)
+        {
+            // Verificar si el email ya está registrado
+            var existingClient = await _context.Client
+                .FirstOrDefaultAsync(c => c.Email == registerRequest.Email);
+
+            if (existingClient != null)
+            {
+                return Conflict("Email is already registered.");
+            }
+
+            var newClient = new Client
+            {
+                Name = registerRequest.Name,
+                Email = registerRequest.Email,
+                Password = registerRequest.Password
+            };
+
+            // Agregar el nuevo cliente a la base de datos
+            _context.Client.Add(newClient);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetClient", new { id = newClient.Codigo }, newClient);
+        }
+
     }
 }
