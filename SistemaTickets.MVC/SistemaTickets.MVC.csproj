@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\TypePriceForUsers\" />
+    <Folder Include="Views\Tickets\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SistemaTickets.Consumer\SistemaTickets.Consumer.csproj" />
+    <ProjectReference Include="..\SistemaTickets.Modelos\SistemaTickets.Modelos.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,25 @@
+﻿@{
+    Layout = "_LoginLayout";
+    ViewData["Title"] = "Login";
+}
+
+<div class="login-container">
+    <h2>Login</h2>
+
+    <form method="post" asp-action="Login">
+        <div>
+            <label for="userName">Username</label>
+            <input type="text" id="userName" name="userName" required />
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required />
+        </div>
+        <button type="submit">Login</button>
+    </form>
+
+    @if (ViewBag.ErrorMessage != null)
+    {
+        <div class="error">@ViewBag.ErrorMessage</div>
+    }
+</div>

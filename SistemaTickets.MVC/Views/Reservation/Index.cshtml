@@ -1,0 +1,89 @@
+﻿@model IEnumerable<SistemaTickets.Modelos.Reservation>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Codigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchasDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AssignedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RouteCodigo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClientCodigo)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Codigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookingDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Status)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchasDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AssignedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalPrice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RouteCodigo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ClientCodigo)
+                </td>
+                <td>
+                    @Html.ActionLink("Details", "Details", new { id = item.Codigo }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Codigo }) |
+
+                    <!-- Formulario para Confirmar -->
+                    <form action="@Url.Action("Confirm", "Reservation")" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@item.Codigo" />
+                        <button type="submit" class="btn btn-success">Confirm</button>
+                    </form> |
+
+                    <!-- Formulario para Cancelar -->
+                    <form action="@Url.Action("Cancel", "Reservation")" method="post" style="display:inline;">
+                        <input type="hidden" name="id" value="@item.Codigo" />
+                        <button type="submit" class="btn btn-danger">Cancel</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

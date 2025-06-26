@@ -1,0 +1,13 @@
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\bin\Debug\net8.0\SistemaTickets.Consumer.deps.json
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\bin\Debug\net8.0\SistemaTickets.Consumer.dll
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\bin\Debug\net8.0\SistemaTickets.Consumer.pdb
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.csproj.AssemblyReference.cache
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.AssemblyInfoInputs.cache
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.AssemblyInfo.cs
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.csproj.CoreCompileInputs.cache
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.sourcelink.json
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.dll
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\refint\SistemaTickets.Consumer.dll
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\SistemaTickets.Consumer.pdb
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Consumer\obj\Debug\net8.0\ref\SistemaTickets.Consumer.dll

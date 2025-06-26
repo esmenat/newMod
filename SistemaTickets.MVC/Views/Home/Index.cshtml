@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Train Ticket Sale";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to Train Ticket Booking</h1>
+    <p>Select a route and seat to reserve your ticket!</p>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div id="successMessage" class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <div class="btn-group-vertical" role="group" aria-label="Ticket Actions">
+
+        <button type="button" class="btn btn-primary ticket-btn" onclick="window.location.href='https://localhost:7019/Client/ViewRoutes'">View Routes</button>
+        <button type="button" class="btn btn-primary ticket-btn" onclick="window.location.href='https://localhost:7019/Client/ViewSeats'">View Seat</button>
+
+        <button type="button" class="btn btn-primary ticket-btn" onclick="window.location.href='https://localhost:7019/Reservation/Create'">Reserve</button>
+
+        <button type="button" class="btn btn-primary ticket-btn" onclick="window.location.href='https://localhost:7019/Reservation/Index'">View Status Reservation</button>
+
+    </div>
+</div>
+
+@section Scripts {
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <script>
+            // Hide the success message after 4 seconds
+            setTimeout(function() {
+                document.getElementById('successMessage').style.display = 'none';
+            }, 4000); // 4000 ms = 4 seconds
+        </script>
+    }
+}

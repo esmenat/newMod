@@ -1,0 +1,45 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #5dade2;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+.ticket-btn {
+    margin-bottom: 15px; /* Adds space between buttons */
+    font-size: 16px; /* Adjusts font size for readability */
+    padding: 15px 30px; /* Adds padding inside the button for better size */
+    width: 100%; /* Makes the buttons stretch to fit the container width */
+    border-radius: 8px; /* Adds rounded corners to the buttons */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+}
+
+    .ticket-btn:hover {
+        background-color: #f1c40f; /* Changes color when the button is hovered */
+        transform: scale(1.05); /* Slightly enlarges the button on hover */
+    }
+
+.btn-success {
+    background-color: #2ecc71; /* Changes the Pay Seat button to green */
+    border-color: #28a745;
+}
+
+    .btn-success:hover {
+        background-color: #5dade2; /* Darker green on hover */
+        border-color: #1e7e34;
+    }

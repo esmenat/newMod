@@ -1,0 +1,95 @@
+﻿@model SistemaTickets.Modelos.Reservation
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Reservation</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Codigo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Codigo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.BookingDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.BookingDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.PurchasDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.PurchasDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.AssignedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.AssignedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.TotalPrice)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.TotalPrice)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.RouteCodigo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.RouteCodigo)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.ClientCodigo)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.ClientCodigo)
+        </dd>
+    </dl>
+</div>
+
+<!-- Tabla de tickets asociados a la reserva -->
+<div>
+    <h4>Tickets</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ticket Code</th>
+                <th>Client Name</th>
+                <th>Seat Number</th>
+                <th>Seat Type</th>
+                <th>User Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var ticket in Model.Tickets) // Asumiendo que Model.Tickets contiene los tickets de la reserva
+            {
+                <tr>
+                    <td>@ticket.Codigo</td>
+                    <td>@ticket.ClientName</td>
+                    <td>@ticket.SeatNumber</td>
+                    <td>@ticket.SeatType</td>
+                    <td>@ticket.UserType</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Codigo }) |
+    <a asp-action="Index">Back to List</a>
+</div>

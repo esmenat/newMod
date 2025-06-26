@@ -1,0 +1,84 @@
+﻿@{
+    ViewData["Title"] = "View Route";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <!-- Leaflet JS -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+
+<body>
+    <h2>Routes</h2>
+
+    <div class="route-container">
+        <!-- First Route: Ibarra - Salinas -->
+        <div class="route">
+            <h3>Ecuador: (Ibarra - Salinas)</h3>
+            <div id="map-ibarra-salinas" style="height: 400px; width: 100%;"></div>
+            <div class="route-details">
+                <p><strong>Origin:</strong> Ibarra</p>
+                <p><strong>Destination:</strong> Salinas</p>
+                <p><strong>Travel Time:</strong> 1 hour </p>
+                <p><strong>Distance:</strong> 67 km</p>
+            </div>
+        </div>
+
+        <!-- Second Route: Ibarra - Ante -->
+        <div class="route">
+            <h3>Ecuador: (Ibarra - Ante)</h3>
+            <div id="map-ibarra-ante" style="height: 400px; width: 100%;"></div>
+            <div class="route-details">
+                <p><strong>Origin:</strong> Ibarra</p>
+                <p><strong>Destination:</strong> Ante</p>
+                <p><strong>Travel Time:</strong> 20 min</p>
+                <p><strong>Distance:</strong> 11 km</p>
+            </div>
+        </div>
+    </div>
+
+    @section Scripts {
+        <script>
+            // Map for Ibarra - Salinas
+            var mapIbarraSalinas = L.map('map-ibarra-salinas').setView([0.9912, -78.1154], 10); // Corrected Ibarra coordinates
+
+            // Add OpenStreetMap tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapIbarraSalinas);
+
+            // Add marker for Ibarra and Salinas with corrected coordinates for both
+            L.marker([0.3444, -78.1154]).addTo(mapIbarraSalinas)  // Corrected coordinates for Ibarra
+                .bindPopup('Ibarra Terminal')
+                .openPopup();
+            L.marker([0.4890, -78.1250]).addTo(mapIbarraSalinas)  // Corrected coordinates for Salinas (Esmeraldas)
+                .bindPopup('Salinas Terminal')
+                .openPopup();
+
+            // Map for Ibarra - Ante
+            var mapIbarraAnte = L.map('map-ibarra-ante').setView([0.9912, -78.1154], 10); // Ibarra coordinates
+
+            // Add OpenStreetMap tile layer
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(mapIbarraAnte);
+
+            // Add marker for Ibarra and Ante
+            L.marker([0.3444, -78.1154]).addTo(mapIbarraAnte)  // Ibarra coordinates
+                .bindPopup('Ibarra')
+                .openPopup();
+            L.marker([0.3333, -78.2222]).addTo(mapIbarraAnte)  // Ante coordinates
+                .bindPopup('Ante')
+                .openPopup();
+        </script>
+    }
+</body>
+</html>

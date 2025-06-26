@@ -1,0 +1,166 @@
+﻿@{
+    ViewData["Title"] = "View Seats";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+
+    <!-- Leaflet CSS for map (if you want to show a map too) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+    <style>
+        .container {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .seat-info {
+            margin-bottom: 20px;
+        }
+
+            .seat-info table {
+                width: 100%;
+                border-collapse: collapse;
+            }
+
+            .seat-info th, .seat-info td {
+                padding: 10px;
+                text-align: left;
+                border: 1px solid #ddd;
+            }
+
+            .seat-info th {
+                background-color: #f2f2f2;
+            }
+
+        .seats-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 10px;
+            margin: 20px 0;
+        }
+
+        .seat {
+            text-align: center;
+            padding: 20px;
+            background-color: #b3d9ff; /* Celeste color */
+            border-radius: 5px;
+            position: relative;
+        }
+
+        /* Window seat style: pastel yellow for window seats */
+        .window-seat {
+            background-color: #d7bde2; /* Pastel yellow for window seats */
+        }
+
+        .image-section {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+            .image-section img {
+                max-width: 80%;
+                border-radius: 10px;
+            }
+
+        .total-price {
+            font-size: 1.2em;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Seats </h2>
+
+        <!-- Passenger categories and prices (moved to the top) -->
+        <div class="seat-info">
+            <h3>Passenger Categories and Prices</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Category</th>
+                        <th>Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Children</td>
+                        <td>$10</td>
+                    </tr>
+                    <tr>
+                        <td>Adults</td>
+                        <td>$20</td>
+                    </tr>
+                    <tr>
+                        <td>Senior Citizens</td>
+                        <td>$15</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Table for explaining seat colors -->
+        <div class="seat-info">
+            <h3>Seat Color Legend</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Seat Color</th>
+                        <th>Meaning</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="background-color: #d7bde2;">Yellow</td>
+                        <td>Window seats</td>
+                    </tr>
+                    <tr>
+                        <td style="background-color: #b3d9ff;">Celeste</td>
+                        <td>Seats without window</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h3>Available Seats</h3>
+        <div class="seats-grid">
+            <!-- All seats will be in blue, with window seats in pastel yellow -->
+            <div class="seat window-seat">1</div>
+            <div class="seat">2</div>
+            <div class="seat window-seat">3</div>
+            <div class="seat">4</div>
+            <div class="seat">5</div>
+            <div class="seat window-seat">6</div>
+            <div class="seat">7</div>
+            <div class="seat window-seat">8</div>
+            <div class="seat">9</div>
+            <div class="seat window-seat">10</div>
+            <div class="seat">11</div>
+            <div class="seat">12</div>
+            <div class="seat window-seat">13</div>
+            <div class="seat">14</div>
+            <div class="seat window-seat">15</div>
+            <div class="seat">16</div>
+            <div class="seat">17</div>
+            <div class="seat window-seat">18</div>
+            <div class="seat">19</div>
+            <div class="seat window-seat">20</div>
+            <div class="seat">21</div>
+            <div class="seat window-seat">22</div>
+            <div class="seat">23</div>
+            <div class="seat window-seat">24</div>
+            <div class="seat">25</div>
+            <div class="seat window-seat">26</div>
+            <div class="seat">27</div>
+            <div class="seat window-seat">28</div>
+            <div class="seat">29</div>
+            <div class="seat window-seat">30</div>
+       
+</body>
+</html>

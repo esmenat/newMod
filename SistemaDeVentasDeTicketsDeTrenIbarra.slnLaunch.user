@@ -1,0 +1,15 @@
+[
+  {
+    "Name": "Nuevo perfil",
+    "Projects": [
+      {
+        "Path": "SistemaDeVentasDeTicketsDeTrenIbarra\\SistemaDeVentasDeTicketsDeTrenIbarra.csproj",
+        "Action": "Start"
+      },
+      {
+        "Path": "SistemaTickets.MVC\\SistemaTickets.MVC.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

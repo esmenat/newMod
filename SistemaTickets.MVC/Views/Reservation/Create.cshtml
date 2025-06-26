@@ -1,0 +1,178 @@
+﻿@model SistemaTickets.Modelos.Reservation
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1 class="text-center my-4">Crear Reserva</h1>
+
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <form id="reservationForm" asp-action="Create" method="post" class="bg-light p-4 rounded shadow-sm">
+                <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+                <!-- Fecha de Asignación -->
+                <div class="form-group">
+                    <label asp-for="AssignedDate" class="control-label">Fecha de Asignación</label>
+                    <input asp-for="AssignedDate" class="form-control" />
+                    <span asp-validation-for="AssignedDate" class="text-danger"></span>
+                </div>
+
+                <!-- Ruta -->
+                <div class="form-group">
+                    <label asp-for="RouteCodigo" class="control-label">Ruta</label>
+                    <select asp-for="RouteCodigo" class="form-control" asp-items="ViewBag.Routes">
+                        <option value="">Seleccione una ruta</option>
+                    </select>
+                    <span asp-validation-for="RouteCodigo" class="text-danger"></span>
+                </div>
+
+                <!-- Tickets -->
+                <h4 class="my-4">Detalles del Ticket</h4>
+                <div class="form-group">
+                    <label for="ClientName">Nombre del Cliente</label>
+                    <input type="text" id="ClientName" name="ClientName" class="form-control"  />
+                </div>
+
+                <div class="form-group">
+                    <label for="SeatNumber">Número de Asiento</label>
+                    <input type="number" id="SeatNumber" name="SeatNumber" class="form-control"  />
+                </div>
+
+                <div class="form-group">
+                    <label for="UserType">Tipo de Usuario</label>
+                    <select id="UserType" name="UserType" class="form-control" >
+                        <option value="1">Niño</option>
+                        <option value="2">Adulto</option>
+                        <option value="3">Tercera Edad</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="SeatType">Tipo de Asiento</label>
+                    <select id="SeatType" name="SeatType" class="form-control" >
+                        <option value="1">Normal</option>
+                        <option value="2">Premium</option>
+                    </select>
+                </div>
+
+                <div class="form-group mb-4">
+                    <button type="button" id="addTicketButton" class="btn btn-success btn-block">Agregar Ticket</button>
+                </div>
+
+                <!-- Tabla de Tickets Agregados -->
+                <h4 class="my-4">Tickets Agregados</h4>
+                <table id="ticketsTable" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Nombre del Cliente</th>
+                            <th>Número de Asiento</th>
+                            <th>Tipo de Usuario</th>
+                            <th>Tipo de Asiento</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Aquí se agregarán los tickets dinámicamente -->
+                    </tbody>
+                </table>
+
+                <!-- Campo oculto para enviar los tickets con el formulario -->
+                <input type="hidden" id="TicketsJson" name="TicketsJson" />
+
+                <div class="form-group">
+                    <input type="submit" value="Crear Reserva" class="btn btn-primary btn-block" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let ticketIndex = 0;
+        let tickets = [];
+
+        // Agregar un ticket a la lista
+        document.getElementById("addTicketButton").onclick = function () {
+            const clientName = document.getElementById("ClientName").value;
+            const seatNumber = document.getElementById("SeatNumber").value;
+            const userType = document.getElementById("UserType").value;
+            const seatType = document.getElementById("SeatType").value;
+
+            // Verificar si todos los campos están completos
+            if (!clientName || !seatNumber || !userType || !seatType) {
+                alert("Por favor, complete todos los campos.");
+                return;
+            }
+
+            // Crear un objeto de ticket
+            const ticket = {
+                ClientName: clientName,
+                SeatNumber: seatNumber,
+                UserType: userType,
+                SeatType: seatType
+            };
+
+            // Agregar el ticket a la lista
+            tickets.push(ticket);
+
+            // Crear una nueva fila en la tabla
+            const table = document.getElementById("ticketsTable").getElementsByTagName('tbody')[0];
+            const newRow = table.insertRow();
+
+            newRow.innerHTML = `
+                <td>${clientName}</td>
+                <td>${seatNumber}</td>
+                <td>${userType == 1 ? "Niño" : userType == 2 ? "Adulto" : "Tercera Edad"}</td>
+                <td>${seatType == 1 ? "Normal" : "Premium"}</td>
+                <td>
+                    <button type="button" class="btn btn-danger btn-sm" onclick="removeTicket(this)">Eliminar</button>
+                </td>
+            `;
+
+            // Limpiar los campos de entrada después de agregar el ticket
+            document.getElementById("ClientName").value = "";
+            document.getElementById("SeatNumber").value = "";
+            document.getElementById("UserType").value = "1";
+            document.getElementById("SeatType").value = "1";
+
+            // Incrementar el índice para cada nuevo ticket
+            ticketIndex++;
+
+            // Actualizar el campo oculto con los tickets en formato JSON
+            document.getElementById("TicketsJson").value = JSON.stringify(tickets);
+        };
+
+        // Función para eliminar un ticket de la tabla
+        function removeTicket(button) {
+            const row = button.parentNode.parentNode;
+            row.parentNode.removeChild(row);
+
+            // Eliminar el ticket de la lista
+            const ticketIndex = row.rowIndex - 1;
+            tickets.splice(ticketIndex, 1);
+
+            // Actualizar el campo oculto con los tickets restantes
+            document.getElementById("TicketsJson").value = JSON.stringify(tickets);
+        }
+
+        // Validación al enviar el formulario
+        document.getElementById("reservationForm").onsubmit = function(event) {
+            // Solo validar los campos principales (sin tocar los tickets)
+            const assignedDate = document.getElementById("AssignedDate").value;
+            const routeCode = document.getElementById("RouteCodigo").value;
+
+            // Verificar que los campos principales estén completos
+            if (!assignedDate || !routeCode) {
+                alert("Por favor, complete todos los campos principales (Fecha de asignación, Ruta).");
+                event.preventDefault();  // Evitar el envío del formulario
+                return;
+            }
+
+            // Actualizar el campo oculto con los tickets en formato JSON
+            document.getElementById("TicketsJson").value = JSON.stringify(tickets);
+        };
+    </script>
+}

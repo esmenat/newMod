@@ -1,0 +1,12 @@
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\bin\Debug\net8.0\SistemaTickets.Modelos.deps.json
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\bin\Debug\net8.0\SistemaTickets.Modelos.dll
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\bin\Debug\net8.0\SistemaTickets.Modelos.pdb
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.AssemblyInfoInputs.cache
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.AssemblyInfo.cs
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.csproj.CoreCompileInputs.cache
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.sourcelink.json
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.dll
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\refint\SistemaTickets.Modelos.dll
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\SistemaTickets.Modelos.pdb
+C:\Users\Junior Tamayo\Desktop\herramientas_tarea2bimestre\SistemaDeVentasDeTicketsDeTrenIbarra\SistemaTickets.Modelos\obj\Debug\net8.0\ref\SistemaTickets.Modelos.dll
